@@ -47,36 +47,6 @@ app.get("/api/hello", function(req, res) {
   res.json({ greeting: "hello API" });
 });
 
-//mycode
-// app.post("/api/shorturl/new", function(req, res) {
-//   let urlRegex = /https:\/\/www.|http:\/\/www./g;
-  
-//   dns.lookup(req.body.url.replace(urlRegex, ""), (err, address, family) => {
-//     if (err) {
-//       res.json({"error":"invalid URL"});
-//     } else {
-//       urlModel
-//         .find()
-//         .exec()
-//         .then(data => {
-//           new urlModel({
-//             id: data.length + 1,
-//             url: req.body.url
-//           })
-//             .save()
-//             .then(() => {
-//               res.json({
-//                 original_url: req.body.url,
-//                 short_url: data.length + 1
-//               });
-//             })
-//             .catch(err => {
-//               res.json(err);
-//             });
-//         });
-//     }
-//   });
-// });
 
 app.post('/api/shorturl', function(req,res){
     console.log(req.body);
@@ -108,16 +78,6 @@ app.get("/api/shorturl/:id", function(req, res) {
   })
 });
 
-
-//get
-// app.get("/api/shorturl/:number", function(req, res) {
-//   urlModel
-//     .find({ id: req.params.number })
-//     .exec()
-//     .then(url => {
-//       res.redirect(url[0]["url"]);
-//     });
-// });
 
 app.listen(port, function() {
   console.log("Node.js listening ...");
